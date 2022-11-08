@@ -3,6 +3,7 @@
 #
 
 addons/**
+!addons/point_of_sale/**
 debian/**
 doc/**
 odoo/**
