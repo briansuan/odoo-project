@@ -199,9 +199,13 @@ odoo.define('point_of_sale.ProductScreen', function(require) {
                 }
             }
         }
-        _setValue(val) {
+        async _setValue(val) {
             if (this.currentOrder.get_selected_orderline()) {
                 if (this.env.pos.numpadMode === 'quantity') {
+                    const product = this.currentOrder.get_selected_orderline().product
+                    let productInfo = await this.env.pos.getProductInfo(product, 1)
+                    let available_quantity = productInfo.productInfo.warehouses[0].available_quantity
+                    if (available_quantity < val) return; 
                     const result = this.currentOrder.get_selected_orderline().set_quantity(val);
                     if (!result) NumberBuffer.reset();
                 } else if (this.env.pos.numpadMode === 'discount') {
