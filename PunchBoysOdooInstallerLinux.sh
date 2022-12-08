@@ -476,7 +476,7 @@ fi
 # Install Punch Boys Modifications
 #--------------------------------------------------
 sudo git clone https://github.com/briansuan/odoo-project /odoo/PunchBoysOdoo/
-sudo /bin/cp -rf /odoo/PunchBoysOdoo/ /odoo/odoo-server/
+sudo /bin/cp -rf /odoo/PunchBoysOdoo/* /odoo/odoo-server/
 
 #echo -e "* Starting Odoo Service"
 #sudo su root -c "/etc/init.d/$OE_CONFIG start"
