@@ -1,8 +1,9 @@
 /* --- Fonts --- */
 
 @font-face{
-    font-family: 'Inconsolata';
-    src: url(../fonts/Inconsolata.otf);
+    font-family: 'Barlow';
+    //src: url(../fonts/Inconsolata.otf);
+    src: url(../fonts/Barlow-ExtraLight.ttf);
 }
 
 /* --- Styling of OpenERP Elements --- */
@@ -327,14 +328,15 @@ td {
     height: 48px;
     margin:0;
     padding:0;
-    color: gray;
-    background: $o-brand-odoo;
+    color: grey;
+    background: #F5F5F5;
     display: flex;
 }
 
 /*  a) The left part of the top-bar */
 
 .pos .pos-branding{
+    color: black;
     max-width: 503px;
     flex-grow: 1;
     height:100%;
@@ -347,23 +349,27 @@ td {
     justify-content: flex-start;
 }
 .pos .pos-logo {
-    height: 50%;
+    height: 85%;
     margin-left: 10px;
     margin-right: auto;
     align-self: center;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 .pos .pos-branding .username{
     float:right;
-    color:#DDD;
+    color:black;
     font-size:16px;
     margin-right:32px;
     line-height: 48px;
     font-style:italic;
     cursor: pointer;
+
 }
 
 .pos .ticket-button {
     display: flex;
+    
 }
 
 /*  b) The right part of the top-bar */
@@ -384,7 +390,9 @@ td {
     display: flex;
     justify-content: flex-end;
     height: 100%;
-    color: white;
+    color: black;
+    font-family: 'Barlow';
+    font-size: 14px;
 }
 
 .pos .status-buttons > div {
@@ -526,7 +534,9 @@ td {
     position: absolute;
     top: 48px;
     bottom: 0;
-    background: $gray-200;
+    background: #F5F5F5;
+    border-top: 1px solid black;
+
 }
 
 /*  ********* The leftpane contains the order, numpad and paypad ********* */
@@ -568,7 +578,7 @@ td {
 }
 
 .pos .pane-border {
-    border-right: solid 3px $gray-300;
+    border-right: solid 2px $gray-300;
 }
 
 .pos .leftpane {
@@ -577,7 +587,8 @@ td {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    max-width: 500px;
+    max-width: 400px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -592,18 +603,20 @@ td {
 
 .pos .leftpane .pads {
     border-top: solid 1px $gray-300;
+    font-family: 'Barlow';
 }
 
 .pos .leftpane .pads .subpads {
     display: flex;
     flex-direction: row;
+    font-family: 'Barlow';
 }
 
 /*  ********* The control buttons ********* */
 
 .pos .control-buttons {
     display: flex;
-    flex-flow: row wrap;
+   
 }
 .pos .popup-control-buttons .control-buttons {
     flex-direction: column;
@@ -618,18 +631,26 @@ td {
     border-left: solid 1px $gray-300;
     border-bottom: solid 1px $gray-300;
     display: inline-block;
-    line-height: 38px;
-    min-width: 80px;
+    line-height: 20px;
+    min-width: 40px;
     text-align: center;
-    padding: 0px 10px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-weight: normal;
     cursor: pointer;
     overflow: hidden;
     transition: all linear 150ms;
+    margin-top: 4px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 4px;
+    border-radius: 5%;
+    color: white; 
+    background-color: #555CFF;
+    font-family: 'Barlow';
 }
 .pos .control-button:hover {
-    background: $gray-200;
+    background: #7d81fa;
 }
 .pos .control-button:active {
     background: black;
@@ -851,7 +872,7 @@ td {
     flex-direction: column;
     flex-basis: 25%;
     flex-grow: 1;
-    background: $gray-300;
+    background: #F5F5F5;
 }
 
 .pos .products-widget {
@@ -865,6 +886,7 @@ td {
     display: grid;
     z-index: 1;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .08);
+    border-radius: 5px;
 }
 
 .pos .product-list-container {
@@ -1137,12 +1159,17 @@ td {
 
 .pos .product {
     position:relative;
-    background:#fff;
+    background: #1F1D2B;
     overflow: hidden;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    border-radius: 8px;
+    font-family: 'Barlow';
+    color: white;
+    font-size: 14px;
+    border: 1px solid #1F1D2B;
 }
 
 .pos .product-content {
@@ -1151,25 +1178,28 @@ td {
     justify-content: space-between;
     height: 100%;
 }
-
-.pos .product .product-img img {
+.product-img img{
+    border-radius: 75%;
+}
+.pos .product  .product-img img{
     width: 100%;
     height: 100px;
     object-fit: cover;
+
 }
 
 @media screen and (max-width: 768px) {
     .pos .product:active {
-        border: solid 3px $primary;
-        box-sizing: border-box;
+        box-shadow: 0 0 0 3px $primary;
     }
 }
 
 .pos .product .price-tag {
-    color: $o-brand-odoo;
+    color: white;
     padding: 2px 5px;
     font-weight: bold;
     padding: 0 map-get($spacers, 2) map-get($spacers, 2);
+    font-family: 'Barlow';
 }
 
 .pos .product .product-info-button {
@@ -2132,12 +2162,14 @@ td {
 
 .pos .order-container{
     top: 0px;
-    width:100%;
-    height: 100%;
+    width: 100%;
+    height: 80%;
     background: white;
     flex-grow: 1;
     overflow: hidden;
     overflow-y: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .pos .scrollable-y{
@@ -2180,8 +2212,9 @@ td {
     text-align:right;
     font-weight: bold;
     padding: map-get($spacers, 2) map-get($spacers, 3);
-    border-top: 1px solid $gray-200;
+    border-top: 1px solid #393C49;
     box-sizing: border-box;
+    font-family: 'Barlow';
 }
 .pos .order .summary .total {
     font-size: 22px;
@@ -2193,7 +2226,7 @@ td {
 .pos .order .summary .line.empty{
     text-align: right;
     border-color:#BBB;
-    color:#999;
+    color:#ABBBC2;
 }
 
 .pos .order .summary .fidpoints{
@@ -2231,7 +2264,7 @@ td {
             transition: background 250ms ease-in-out;
 }
 .pos .order .orderline:active{
-    background: rgba(140,143,183,0.05);
+    background: #1F1D2B;
     -webkit-transition: background 50ms ease-in-out;
        -moz-transition: background 50ms ease-in-out;
             transition: background 50ms ease-in-out;
@@ -2242,7 +2275,7 @@ td {
 }
 
 .pos .order .orderline.selected{
-    background: rgba($primary, 0.2);
+    background: #1F1D2B;
     -webkit-transition: background 250ms ease-in-out;
        -moz-transition: background 250ms ease-in-out;
             transition: background 250ms ease-in-out;
@@ -2251,28 +2284,38 @@ td {
 .pos .order .orderline .product-name{
     padding:0;
     display:inline-block;
-    font-weight: bold;
+    font-weight: normal;
     width:80%;
     overflow:hidden;
     text-overflow: ellipsis;
+    color: white;
+    //font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Barlow';
 }
 .pos .order .orderline .price{
     padding:0;
-    font-weight: bold;
+    font-weight: normal;
     float:right;
+    color: white;
+    font-family: 'Barlow';
+}
+.info-list {
+    margin-bottom: 200px;
+    font-family: 'Barlow';
 }
 .pos .order .orderline .info-list{
-    color: $gray-700;
+    color: white;
     margin-left:10px;
+    
 }
 .pos .order .orderline .info-list em{
-    color: $gray-700;
-    font-weight: bold;
+    color: white;
+    font-weight: normal;
     font-style:normal;
 }
 
 .pos .order .orderline .to-refund-highlight {
-    font-weight: bold;
+    font-weight: normal;
     color: $primary;
 }
 
@@ -2285,6 +2328,16 @@ td {
     cursor: pointer;
 }
 
+hr {
+    height: 0px;
+    left: 0px;
+    top: 247px;
+
+    /* Base / Dark Line */
+    border: 0.5px solid #393C49;
+}
+
+
 /* ------ ORDER NOTES ------- */
 
 .pos .order .orderline-note {
@@ -2295,6 +2348,43 @@ td {
     opacity: 0.5;
     margin-right: 4px;
 }
+.order_note_combo {
+    margin-bottom: 100px;
+}
+.order_note {
+
+    background-color: #2D303E;
+    border-radius: 4px;
+    border: 1px solid #2D303E;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 14px;
+    height: 30px;
+    padding: 4px 20px 0;
+    width: 220px; 
+    font-family: 'Barlow'; 
+}
+#note_button {
+    border: 1px solid #555CFF;
+    background-color: #1F1D2B;
+    border-color: #555CFF;
+    color: white;
+    padding: 6px 18px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-family: 'Barlow';
+}
+#note_button:hover {
+    background-color: #555CFF;
+}
+input::placeholder {
+    color: rgb(164, 164, 167);
+}
+input.order_note:focus {
+    outline-width: 0;
+}
+
 
 /*  ********* SplitBill ********* */
 
@@ -3412,7 +3502,8 @@ td {
     align-items: center;
     padding: 0 15px;
     font-size: medium;
-    color: white;
+    color: Black;
+    font-family: 'Barlow';
 }
 
 .ticket-button.highlight {
@@ -3434,7 +3525,7 @@ td {
 }
 
 [badge]:after {
-    background: $o-navbar-badge-bg;
+    background: #555CFF;
     border-radius: 10rem;
     color: #fff;
     content: attr(badge);
@@ -3458,7 +3549,8 @@ td {
     align-items: center;
     padding: 0 15px;
     font-size: medium;
-    color: white;
+    color: black;
+    font-family: 'Barlow';
 }
 
 .cash-move-button:hover {
@@ -3858,6 +3950,15 @@ td {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
 }
+
+/* For NewOrderWidget */
+#new_order_widget {
+    background-color: #1F1D2B;
+    border-radius: 10px;
+}
+//#31303d
+
+
 @keyframes lds-ellipsis1 {
     0% {
         transform: scale(0);

@@ -3,6 +3,7 @@
 
     <t t-name="Orderline" owl="1">
         <li t-on-click="selectLine" class="orderline" t-att-class="addedClasses">
+            
             <span class="product-name">
                 <t t-esc="props.line.get_full_product_name()"/>
                 <span> </span>
@@ -26,9 +27,10 @@
                 </t>
             </span>
             <span class="price">
-                <t t-esc="env.pos.format_currency(props.line.get_display_price())"/>
+                <t t-esc="env.pos.format_currency(props.line.get_display_price())"/>  
             </span>
             <ul class="info-list">
+                
                 <t t-if="props.line.get_quantity_str() !== '1' || props.line.selected ">
                     <li class="info">
                         <em>
@@ -65,6 +67,14 @@
                         <t t-esc="customerNote" />
                     </li>
                 </t>
+                <!--NEW COMPONENT-->
+                <span class="order_note_combo"> 
+                    <span class="note_input">
+                        <input type="text" id="order_note_input" class="order_note" name="note" placeholder="Enter a Note">
+                    </span>
+                    <button id="note_button" t-on-click="() => this.setNote()">Add</button>
+                </span> 
+                <!--NEW COMPONENT-->
             </ul>
             <t t-if="props.line.pack_lot_lines">
                 <ul class="info-list">
@@ -76,6 +86,7 @@
                 </ul>
             </t>
         </li>
+        <hr>
     </t>
 
 </templates>
